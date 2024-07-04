@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/photos', photoRoutes);
 app.use('/orders', orderRoutes);
 
-const PORT = process.env.PORT || 9999;
-app.listen(9999, () => console.log(`Server running on port ${9999}`));
+const PORT = process.env.PORT || 5000;
+app.listen(5000, () => console.log(`Server running on port ${5000}`));
 

@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
 import memoryCache from 'memory-cache';
 
+const MAX_ITEMS = 30;
 
 
 const getPhotoUrls = async (req: Request, res: Response): Promise<void> => {
-    const count: number = parseInt(req.params.count, 10);
+    const count: number = Math.min(parseInt(req.params.count, 10), MAX_ITEMS);
     const cacheKey = `photos_${count}`;
     const photoUrlsFromCache = memoryCache.get(cacheKey);
     if (photoUrlsFromCache) {
